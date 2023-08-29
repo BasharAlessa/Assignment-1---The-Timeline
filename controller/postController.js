@@ -1,6 +1,7 @@
 const postModel = require("../models/postModel")
 const homePage=(req , res)=>{
     postModel.find()
+    .sort({created_at :"-1"})
     .then(data =>{
         res.render("index",{
             posts:data
