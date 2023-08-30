@@ -1,14 +1,24 @@
 const postModel = require("../models/postModel")
+const commentModel = require("../models/commentModel")
 const homePage=(req , res)=>{
     postModel.find()
-    .sort({created_at :"-1"})
+    .populate("comments" , "_id comment")
+    .sort({created_at :-1})
     .then(data =>{
+        console.log(data[1]);
         res.render("index",{
             posts:data
         })
-        console.log(data);
     })
     .catch(err =>{
+        console.log(err);
+    })
+    commentModel.find()
+    .populate("post_id")
+    .then(data =>{
+        // console.log(data);
+    })
+    .catch(err=>{
         console.log(err);
     })
 }
@@ -34,7 +44,7 @@ const submitNewPost =(req , res)=>{
         .catch(err=>{
             console.log(err);
         })
-        console.log(newPost);
+        // console.log(newPost);
     }
 
 }

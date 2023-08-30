@@ -8,4 +8,5 @@ app.set("view engine", "ejs")
 app.use(express.urlencoded({extended:false}))
 
 app.use(route)
-app.listen(4500 , ()=>console.log("server is --- ON"))
+const port = 200
+app.listen(`${port}` , ()=>console.log(`localhost:${port} is --- ON`))

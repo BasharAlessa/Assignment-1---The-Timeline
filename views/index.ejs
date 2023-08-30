@@ -12,11 +12,26 @@
     <div class="card">
         <h2><%=post.title %></h2>
         <h6><%= post.desc %></h6>
+        <div>
+            <form method="POST" action="/add-comment/<%= post._id%>">
+                <input name="comment" placeholder="Comment">
+                <button class="btn btn-outline-dark"> Add Comment</button>
+            </form>
+        </div>
+        <div>
+            <% if (post.comments.length>0) { %>
+                <% post.comments.forEach(comment=> { %>
+                    <div class="card comment">
+                        <h5><%=comment.comment%></h5>
+                    </div>
+            <% }) %>
+
+            <% } %>
+        </div>
     </div>
         <% }) %>
     <%} else {%> 
-        <p>No Posts For Today</p>
-
+        <h3>There Is No Saved Posts</h3>
     <% } %>
 </body>
 </html>
