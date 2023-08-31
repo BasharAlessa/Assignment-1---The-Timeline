@@ -40,6 +40,20 @@ function updatePostData(postId , commentId , res){
     console.log(err);
     })
 }
+
+
+const deleteComment =(req , res )=>{
+    // console.log(req.params.id)
+    commentModel.findByIdAndDelete(req.params.id)
+        .then(()=>{
+            res.redirect("/")
+
+        })
+        .catch (err =>{
+            console.log(err);
+        })
+}
 module.exports= {
-    addComment
+    addComment,
+    deleteComment
 }

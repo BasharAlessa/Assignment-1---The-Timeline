@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit post</title>
+    <%- include("./shared/header") %>
+
+</head>
+<body>
+    <form action="/submit-edit/<%= info._id%>" method="post">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" placeholder="Title" value="<%= info.title%>" required>
+       <br/><br>
+
+        <label for="desc">Title</label>
+        <input id="desc" type="text" name="desc" placeholder="Description" value="<%= info.desc%>" required>
+        <br/><br>
+
+        <button class="btn btn-outline-dark" > Edit Post</button>
+
+    </form>
+
+</body>
+</html>

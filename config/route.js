@@ -9,7 +9,10 @@ route.get("/" , postController.homePage)
 route.get("/create-new-post" , postController.createNewPostPage)
 route.post("/submit-new-post" , postController.submitNewPost)
 route.post("/add-comment/:id", commentController.addComment)
-
+route.get("/delete-comment/:id" , commentController.deleteComment)
+route.get("/delete-post/:id" , postController.deletePost)
+route.get("/edit-post/:id", postController.openEditPage)
+route.post("/submit-edit/:id" , postController.submitEditPost)
 
 
 module.exports= route;
